@@ -18,7 +18,7 @@ const corsOptions = {
 };
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/instagram-posts', { useMongoClient: true });
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/instagram-posts', { useMongoClient: true });
 
 server.use(bodyParser.urlencoded({extended: true}));
 server.use(bodyParser.json());
